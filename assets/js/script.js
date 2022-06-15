@@ -12,3 +12,13 @@ const modalCloseFunc = function () {
 // modal eventListener
 modalCloseOverlay.addEventListener('click', modalCloseFunc);
 modalCloseBtn.addEventListener('click', modalCloseFunc);
+
+
+// toast variables
+const notificationToast = document.querySelector('[data-toast]');
+const toastCloseBtn = document.querySelector('[data-toast-close]');
+
+// toast eventListener
+toastCloseBtn.addEventListener('click', function() {
+  notificationToast.classList.add('closed');
+})
