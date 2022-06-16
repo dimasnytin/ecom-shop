@@ -1,6 +1,13 @@
-/* стандарные стили */
-:root{
-  /* цвета сайта */
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
   --spanish-gray: hsl(0, 0%, 60%);
   --sonic-silver: hsl(0, 0%, 47%);
   --eerie-black: hsl(0, 0%, 13%);
@@ -13,7 +20,10 @@
   --white: hsl(0, 100%, 100%);
   --onyx: hsl(0, 0%, 27%);
 
-  /* размеры шрифтов */
+  /**
+   * typography
+   */
+
   --fs-1: 1.563rem;
   --fs-2: 1.375rem;
   --fs-3: 1.25rem;
@@ -25,111 +35,197 @@
   --fs-9: 0.75rem;
   --fs-10: 0.688rem;
   --fs-11: 0.625rem;
-  
+
   --weight-300: 300;
   --weight-400: 400;
   --weight-500: 500;
   --weight-600: 600;
   --weight-700: 700;
 
-  /* border - radius */
+  /**
+   * border-radius
+   */
+
   --border-radius-md: 10px;
   --border-radius-sm: 5px;
 
-  /* transition */
+  /**
+   * transition 
+   */
+
   --transition-timing: 0.2s ease;
+
 }
 
-*, *::before, *::after{
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
   margin: 0;
-  padding: 0;box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-li{
+li {
   list-style: none;
 }
 
-button{
+button {
   background: none;
   font: inherit;
   border: none;
   cursor: pointer;
 }
 
-img, ion-icon, button, a{
+img,
+ion-icon,
+button,
+a {
   display: block;
 }
 
-span{
+span {
   display: inline-block;
 }
 
-html{
+html {
   font-family: "Poppins", sans-serif;
   overscroll-behavior: contain;
 }
 
-input{
+input {
   display: block;
   width: 100%;
   font: inherit;
 }
 
-input::placeholder{
+input::placeholder {
   font: inherit;
 }
 
-body{
+body {
   background: var(--white);
 }
 
-/* скролл бар на body */
-body::-webkit-scrollbar{
+/**
+ * scrollbar style
+ */
+
+body::-webkit-scrollbar {
   width: 15px;
 }
 
-body::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track {
   background: var(--white);
   border-left: 1px solid var(--cultured);
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
   background: hsl(0, 0%, 80%);
   border: 3px solid var(--white);
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb:hover{
+body::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 0%, 70%);
 }
 
-/* повторные стили */
 
-/* overlay */
-.overlay{
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container {
+  padding: 0 15px;
+}
+
+.has-scrollbar {
+  padding-bottom: 5px;
+}
+
+.has-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  /* for vertical scroll */
+  height: 12px;
+  /* for horizontal scroll */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 3px solid var(--white);
+  border-radius: 20px;
+}
+
+.has-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 90%);
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 80%);
+}
+
+.title {
+  color: var(--eerie-black);
+  font-size: var(--fs-5);
+  font-weight: var(--weight-600);
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cultured);
+  margin-bottom: 30px;
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #MAIN
+\*-----------------------------------*/
+
+/**
+ * overlay 
+ */
+
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: hsl(0, 0%, 0%, 0.5);
+  background: hsla(0, 0%, 0%, 0.5);
   opacity: 0;
   pointer-events: none;
   z-index: 15;
   transition: 0.5s ease;
 }
 
-.overlay.active{
+.overlay.active {
   opacity: 1;
   pointer-events: all;
 }
 
-/* модальное окно */
-.modal{
+
+
+/**
+ * MODAL 
+ */
+
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -146,24 +242,27 @@ body::-webkit-scrollbar-thumb:hover{
   animation: popup 1s ease-in-out 5s forwards;
 }
 
-@keyframes popup{
+@keyframes popup {
 
-  0%{
+  0% {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
-  100%{
+  100% {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
+
 }
 
-.modal.closed{display: none;}
+.modal.closed {
+  display: none;
+}
 
-.modal-close-overlay{
+.modal-close-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -172,11 +271,11 @@ body::-webkit-scrollbar-thumb:hover{
   z-index: 1;
 }
 
-.newsletter-img{
+.newsletter-img {
   display: none;
 }
 
-.modal-content{
+.modal-content {
   position: relative;
   max-width: 350px;
   margin: 20px;
@@ -187,17 +286,19 @@ body::-webkit-scrollbar-thumb:hover{
   animation: scaleUp 0.5s ease-in-out 5s forwards;
 }
 
-@keyframes scaleUp{
-  0%{
+@keyframes scaleUp {
+
+  0% {
     transform: scale(0.9);
   }
 
-  100%{
+  100% {
     transform: scale(1);
   }
+
 }
 
-.modal-close-btn{
+.modal-close-btn {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -208,7 +309,7 @@ body::-webkit-scrollbar-thumb:hover{
   border-radius: var(--border-radius-sm);
 }
 
-.modal-close-btn:hover{
+.modal-close-btn:hover {
   opacity: 0.9;
 }
 
@@ -216,29 +317,29 @@ body::-webkit-scrollbar-thumb:hover{
   --ionicon-stroke-width: 70px;
 }
 
-.newsletter{
+.newsletter {
   padding: 50px 30px;
   text-align: center;
 }
 
-.newsletter-header{
+.newsletter-header {
   margin-bottom: 20px;
 }
 
-.newsletter-title{
+.newsletter-title {
   color: var(--onyx);
   font-size: var(--fs-2);
   font-weight: var(--weight-600);
   margin-bottom: 10px;
 }
 
-.newsletter-desc{
+.newsletter-desc {
   color: var(--sonic-silver);
   font-size: var(--fs-7);
   line-height: 1.6;
 }
 
-.email-field{
+.email-field {
   font-size: var(--fs-7);
   padding: 8px 16px;
   border-radius: var(--border-radius-sm);
@@ -246,7 +347,7 @@ body::-webkit-scrollbar-thumb:hover{
   margin-bottom: 16px;
 }
 
-.btn-newsletter{
+.btn-newsletter {
   background: var(--eerie-black);
   color: var(--white);
   font-size: var(--fs-7);
@@ -258,18 +359,25 @@ body::-webkit-scrollbar-thumb:hover{
   transition: var(--transition-timing);
 }
 
-.btn-newsletter:hover{
+.btn-newsletter:hover {
   background: var(--salmon-pink);
 }
 
-/* Toast стили */
+
+
+
+
+/**
+ * NOTIFICATION TOAST 
+ */
+
 .notification-toast {
   position: fixed;
   bottom: 80px;
   left: 20px;
   right: 20px;
-  max-width: 320px;
   background: var(--white);
+  max-width: 300px;
   display: flex;
   align-items: flex-start;
   gap: 15px;
@@ -282,10 +390,11 @@ body::-webkit-scrollbar-thumb:hover{
   animation: slideInOut 10s ease-in-out infinite;
 }
 
-@keyframes slideInOut{
+@keyframes slideInOut {
+
   0%,
   45%,
-  100%{
+  100% {
     transform: translateX(calc(-100% - 40px));
     opacity: 0;
     visibility: hidden;
@@ -297,9 +406,12 @@ body::-webkit-scrollbar-thumb:hover{
     opacity: 1;
     visibility: visible;
   }
+
 }
 
-.notification-toast.closed{ display: none;}
+.notification-toast.closed {
+  display: none;
+}
 
 .toast-close-btn {
   position: absolute;
@@ -308,7 +420,7 @@ body::-webkit-scrollbar-thumb:hover{
   color: var(--sonic-silver);
 }
 
-.toast-close-btn ion-icon{
+.toast-close-btn ion-icon {
   --ionicon-stroke-width: 50px;
 }
 
@@ -319,13 +431,13 @@ body::-webkit-scrollbar-thumb:hover{
   border-radius: var(--border-radius-sm);
 }
 
-.toast-banner img{
+.toast-banner img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
 }
- 
+
 .toast-detail {
   width: calc(100% - 85px);
   padding-right: 10px;
@@ -349,3 +461,28 @@ body::-webkit-scrollbar-thumb:hover{
 }
 
 
+
+
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+.header-top,
+.header-user-actions,
+.desktop-navigation-menu {
+  display: none;
+}
+
+.header-main {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--cultured);
+}
+
+.header-logo {
+  margin-bottom: 20px;
+}
+
+.header-logo img {
+  margin: auto;
+}
